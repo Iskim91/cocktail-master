@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="text-center">The Cocktail Master</h1>
+    <div class="cards">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <h4><%= cocktail.name.capitalize %></h4>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

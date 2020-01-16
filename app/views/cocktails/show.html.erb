@@ -1,12 +1,22 @@
+<!-- <div class="cocktail-img" style=style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path (@cocktail.photo) %>) ">
+</div> -->
 <div class="container">
   <h1 class="text-center"><%= @cocktail.name %></h1>
-  <div class="dose-list">
-    <ol>
-      <% @cocktail.doses.each do |dose| %>
-        <li><%= dose.ingredient.name %>- <%= dose.amount %></li>
-      <% end %>
-    </ol>
-  </div>
+<div class="cocktail-info d-flex">
+  <% if @cocktail.photo %>
+    <div class="cocktail-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(@cocktail.photo) %>)">
+  <% else %>
+    <div class="cocktail-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <% end %>
+    </div>
+    <div class="dose-list flex-grow">
+      <ol>
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.ingredient.name %>- <%= dose.amount %></li>
+        <% end %>
+      </ol>
+    </div>
+</div>
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
     <%= f.association :ingredient %>
     <%= f.input :amount %>

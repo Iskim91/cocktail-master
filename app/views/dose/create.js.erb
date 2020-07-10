@@ -1,0 +1,7 @@
+console.log("Hello from AJAX");
+console.log('hhhhh')
+Create HTML for the Dose
+newDose = "<li><%= dose.ingredient.name %>- <%= dose.amount %></li>"
+// Append the new Dose to the dose list
+doses = document.getElementById('dose-list')
+doses.insertAdjacentHTML('beforeend', newDose)
